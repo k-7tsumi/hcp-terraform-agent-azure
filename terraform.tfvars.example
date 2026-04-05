@@ -1,0 +1,4 @@
+location             = "eastasia"
+resource_group_name  = "rg-agent-example"
+virtual_network_name = "vnet-agent"
+ssh_public_key       = "ssh-rsa AAAA..."
