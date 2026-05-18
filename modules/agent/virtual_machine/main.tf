@@ -37,4 +37,12 @@ resource "azurerm_linux_virtual_machine" "vm_agent" {
     sku       = "22_04-lts-gen2"
     version   = "latest"
   }
+  identity {
+    type         = "UserAssigned"
+    identity_ids = [var.user_assigned_identity_id]
+  }
+  custom_data = base64encode(templatefile("${path.module}/cloud-init.yaml.tpl", {
+    key_vault_uri                    = var.key_vault_uri
+    user_assigned_identity_client_id = var.user_assigned_identity_client_id
+  }))
 }

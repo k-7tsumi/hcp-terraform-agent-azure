@@ -8,6 +8,9 @@ module "virtual_machine" {
   source              = "./virtual_machine"
   location            = var.location
   resource_group_name = var.resource_group_name
-  subnet_id           = module.network.subnet_id
-  ssh_public_key      = var.ssh_public_key
+  subnet_id                        = module.network.subnet_id
+  ssh_public_key                   = var.ssh_public_key
+  user_assigned_identity_id        = var.user_assigned_identity_id
+  user_assigned_identity_client_id = var.user_assigned_identity_client_id
+  key_vault_uri                    = var.key_vault_uri
 }
